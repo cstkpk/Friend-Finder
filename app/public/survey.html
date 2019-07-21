@@ -250,7 +250,7 @@ $("#submit").on("click", function(event) {
             $("#modal-match").modal("show");
             // Clear out user input fields
             $(".form-control").val("");
-            $(".chosen select").val("");
+            $(".chosen select").val(""); // This doesn't clear out the fields like I thought it would. Come back later
 
         });
     

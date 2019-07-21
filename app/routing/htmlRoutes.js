@@ -14,4 +14,9 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/survey.html"));
     });
 
+    // Sends user to the home page, even if they write a non-defined parameter after the url
+    app.get("*", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/home.html"));
+    });
+
 };
