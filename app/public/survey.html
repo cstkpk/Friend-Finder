@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Friend Finder</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- Bootstrap Glyphicons -->
+    <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <!-- If I insert my own stylehseet -->
-    <!-- jQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -151,22 +151,40 @@
             </div>
         </footer>
 
-        <!-- Modal -->
-        <div class="modal" tabindex="-1" role="dialog" id="results-modal">
+        <!-- Form validation modal -->
+        <div class="modal" tabindex="-1" role="dialog" id="modal-validation">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Hold on!</h5>
+                    <h5 class="modal-title">Hey there!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Please fill out all fields. Choo choo!</p>
+                    <p>Please fill out all of the questions.</p>
                 </div>
                 </div>
             </div>
         </div>
+        <!-- Match modal -->
+        <div class="modal" tabindex="-1" role="dialog" id="modal-match">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Results</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Your new best friend is: <span id="match-name"></span></p>
+                    <img id="match-photo" src="" alt="">
+                </div>
+                </div>
+            </div>
+        </div>
+        
 
     </div>
 
@@ -176,7 +194,6 @@
 // Retrieve user input
 $("#submit").on("click", function(event) {
     event.preventDefault();
-    
     // Form validation
     function validateForm() {
         var isValid = true;
@@ -225,17 +242,23 @@ $("#submit").on("click", function(event) {
         // Post user input to /api/friends
         $.post("/api/friends", userAnswers, function(data) {
 
+            // Grab match here
+            // (Just console log testing for now)
             console.log(data);
             console.log("api/friends post successful");
             // Show results modal
-            $("#results-modal").modal("toggle");
+            $("#modal-match").modal("show");
+            // Clear out user input fields
+            (".form-control").val("");
+            (".chosen select").val("");
 
         });
     
     } 
     // If form validation returns as false, tell the user to fill out all of the questions
     else {
-        alert("Please answer all of the questions!");
+        $("#modal-validation").modal("show");
+        // alert("Please answer all of the questions!");
         // formAlerts();
     }
 });
