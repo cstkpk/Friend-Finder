@@ -28,6 +28,9 @@
                 <h3>About You:</h3>
                 <label for="name">Name (Required)</label>
                 <input type="email" class="form-control" id="name" placeholder="Your Name Here">
+                <div class="invalid-feedback">
+                    Please provide your name.
+                </div>
             </div>
             <div class="form-group">
                 <label for="photo">Photo (Required)</label>
@@ -136,7 +139,7 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <br><br>
-            <button class="btn btn-primary" type="submit"><i class="fa fa-check-circle"></i> Submit form</button>
+            <button class="btn btn-primary" id="submit" type="submit"><i class="fa fa-check-circle"></i> Submit form</button>
         </form>
 
         <hr>
@@ -153,7 +156,7 @@
 
 <script type="text/javascript">
     
-// Capture the form inputs
+// Retrieve user input
 $("#submit").on("click", function(event) {
     event.preventDefault();
     
@@ -162,17 +165,58 @@ $("#submit").on("click", function(event) {
         var isValid = true;
         $(".form-control").each(function() {
             if ($(this).val() === "") {
-            isValid = false;
+                isValid = false;
+                console.log("Invalid input");
             }
         });
 
         $(".chosen-select").each(function() {
             if ($(this).val() === "") {
-            isValid = false;
+                isValid = false;
+                console.log("Invalid input");
             }
         });
+        console.log("Form validation finished");
         return isValid;
     };
+
+    // function formAlerts() {
+    //     var forms = $(".form-control");
+    // }
+    
+    // If form validation returns as true, create an object to hold user's input
+    if (validateForm()) {
+        var userAnswers = {
+          name: $("#name").val(),
+          photo: $("#photo").val(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+        };
+
+        // Post user input to /api/friends
+        $.post("/api/friends", userAnswers, function(data) {
+
+
+        });
+    
+    } 
+    // If form validation returns as false, tell the user to fill out all of the questions
+    else {
+        alert("Please answer all of the questions!");
+        // formAlerts();
+    }
+});
+
 </script>
 
 </body>
