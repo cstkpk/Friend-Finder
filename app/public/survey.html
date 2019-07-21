@@ -49,8 +49,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 2</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q2">First question here</label><br>
+            <select class="chosen-select" id="q2">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -59,8 +59,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 3</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q3">First question here</label><br>
+            <select class="chosen-select" id="q3">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -69,8 +69,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 4</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q4">First question here</label><br>
+            <select class="chosen-select" id="q4">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -79,8 +79,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 5</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q5">First question here</label><br>
+            <select class="chosen-select" id="q5">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -89,8 +89,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 6</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q6">First question here</label><br>
+            <select class="chosen-select" id="q6">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -99,8 +99,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 7</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q7">First question here</label><br>
+            <select class="chosen-select" id="q7">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -109,8 +109,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 8</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q8">First question here</label><br>
+            <select class="chosen-select" id="q8">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -119,8 +119,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 9</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q9">First question here</label><br>
+            <select class="chosen-select" id="q9">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -129,8 +129,8 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select><br><br>
             <h3>Question 10</h3>
-            <label for="q1">First question here</label><br>
-            <select class="chosen-select" id="q1">
+            <label for="q10">First question here</label><br>
+            <select class="chosen-select" id="q10">
                 <option value="">Select an option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -227,7 +227,8 @@ $("#submit").on("click", function(event) {
 
             console.log(data);
             console.log("api/friends post successful");
-            $("#results-modal").modal("show");
+            // Show results modal
+            $("#results-modal").modal("toggle");
 
         });
     

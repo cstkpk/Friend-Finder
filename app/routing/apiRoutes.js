@@ -12,7 +12,7 @@ module.exports = function(app) {
     // Retrieves user input from array and displays on API friends list
     app.post("/api/friends", function(req, res) {
         surveyData.push(req.body);
-        // res.json(true);
+        res.json(true);
     });
 
 };
