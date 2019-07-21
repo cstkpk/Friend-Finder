@@ -1,6 +1,6 @@
 // Array holding all of the user answers to the survey
 
-var surveyArr = [
+var surveyArr = ["hello"
 
 ];
 

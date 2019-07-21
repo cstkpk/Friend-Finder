@@ -151,6 +151,23 @@
             </div>
         </footer>
 
+        <!-- Modal -->
+        <div class="modal" tabindex="-1" role="dialog" id="resuls-modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hold on!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please fill out all fields. Choo choo!</p>
+                </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
@@ -178,7 +195,7 @@ $("#submit").on("click", function(event) {
         });
         console.log("Form validation finished");
         return isValid;
-    };
+    }
 
     // function formAlerts() {
     //     var forms = $(".form-control");
@@ -189,7 +206,7 @@ $("#submit").on("click", function(event) {
         var userAnswers = {
           name: $("#name").val(),
           photo: $("#photo").val(),
-          scores: [
+          options: [
             $("#q1").val(),
             $("#q2").val(),
             $("#q3").val(),
@@ -203,9 +220,14 @@ $("#submit").on("click", function(event) {
           ]
         };
 
+        console.log(userAnswers);
+
         // Post user input to /api/friends
         $.post("/api/friends", userAnswers, function(data) {
 
+            console.log(data);
+            console.log("api/friends post successful");
+            $("#modal-test").modal("show");
 
         });
     
