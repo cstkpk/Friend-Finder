@@ -1,0 +1,9 @@
+.custom-bg {
+    background-image: url("people.jpg");
+    background-size: cover;
+};
+
+body {
+    background-color: blue;
+};
+
