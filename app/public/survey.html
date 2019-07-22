@@ -244,9 +244,7 @@ $("#submit").on("click", function(event) {
         $.post("/api/friends", userAnswers, function(data) {
 
             // Grab match here
-            // (Just console log testing for now)
-            console.log(data);
-            console.log("api/friends post successful");
+            $("#match-name").text(data.name);
             // Show results modal
             $("#modal-match").modal("show");
             // Clear out user input fields

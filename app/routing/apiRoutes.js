@@ -37,14 +37,27 @@ module.exports = function(app) {
 
 
         var newPerson = req.body.options;
+        var matchFriend;
+        var matchPhoto;
         
-        for (var i = 0; i < surveyData.length; i++) {
+        var diffArr = [];
+        for (var i = 0; i < surveyData.length - 1; i++) {
             var difference = 0;
             for (var j = 0; j < newPerson.length; j++) {
                 difference += Math.abs(surveyData[i].options[j] - newPerson[j]);
             }
+            
             console.log(difference);
+            diffArr.push(difference)
         }
+        console.log(diffArr);
+        console.log(Math.min(...diffArr));
+        var matchNum = diffArr.indexOf(Math.min(...diffArr));
+        console.log(matchNum);
+        matchFriend = surveyData[matchNum].name;
+        matchPhoto = surveyData[matchNum].photo
+        console.log(matchFriend);
+        console.log(matchPhoto);
 
     });
 
