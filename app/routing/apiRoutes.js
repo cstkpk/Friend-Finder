@@ -14,27 +14,38 @@ module.exports = function(app) {
         surveyData.push(req.body);
         res.json(true);
 
-        var newPerson = req.body.options;
-        var newPersonInt = [];
-        for (var i = 0; i < newPerson.length; i++) {
-            newPersonInt.push(parseInt(newPerson[i]));
-        }
-        console.log(newPersonInt);
+        // var newPerson = req.body.options;
+        // var newPersonInt = [];
+        // for (var i = 0; i < newPerson.length; i++) {
+        //     newPersonInt.push(parseInt(newPerson[i]));
+        // }
+        // console.log(newPersonInt);
 
-        // var allPerson = [];
-        var allPersonInt = [];
-        for (var i = 0; i < surveyData.length - 1; i++) {
-            console.log(surveyData[i].options);
-            // allPerson.push(surveyData[i].options)
-            // console.log(allPerson);
-            for (var j = 0; j < surveyData[i].options.length; j++) {
-                allPersonInt.push(parseInt(surveyData[i].options[j]));
-            }
-        }
-        console.log(allPersonInt);
+        // // var allPerson = [];
+        // var allPersonInt = [];
+        // for (var i = 0; i < surveyData.length - 1; i++) {
+        //     console.log(surveyData[i].options);
+        //     // allPerson.push(surveyData[i].options)
+        //     // console.log(allPerson);
+        //     for (var j = 0; j < surveyData[i].options.length; j++) {
+        //         // allPersonInt.push(parseInt(surveyData[i].options[j]));
+        //         console.log(parseInt(surveyData[i].options[j]));
+        //     }
+        // }
+        // console.log(allPersonInt);
         console.log(surveyData.length);
+
+
+        var newPerson = req.body.options;
+        
+        for (var i = 0; i < surveyData.length; i++) {
+            var difference = 0;
+            for (var j = 0; j < newPerson.length; j++) {
+                difference += Math.abs(surveyData[i].options[j] - newPerson[j]);
+            }
+            console.log(difference);
+        }
+
     });
 
 };
-
-// console.log(surveyData);
