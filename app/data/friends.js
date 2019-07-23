@@ -2,8 +2,8 @@
 
 var surveyArr = [
     {
-        name: "Bob",
-        photo: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwiAvYnK8sbjAhWqUt8KHWrKDDUQjRx6BAgBEAU&url=https%3A%2F%2Fmodernfarmer.com%2F2017%2F12%2F6-facts-sheep-might-not-know%2F&psig=AOvVaw2xpu_sHBtlbtzxZj0M8Zoo&ust=1563828848236511",
+        name: "Sherman the Sheep",
+        photo: "https://modernfarmer.com/wp-content/uploads/2017/12/Funny-Sheep-Facts.jpg",
         options: [
             "1",
             "2",
@@ -19,7 +19,7 @@ var surveyArr = [
     },
     {
         name: "Harry Potter",
-        photo: "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwi22Jadw8njAhXR1lkKHYzuAfoQjRx6BAgBEAU&url=http%3A%2F%2Fmentalfloss.com%2Farticle%2F521382%2Fstudy-kids-who-read-harry-potter-grow-be-better-people&psig=AOvVaw0oSRapaS4IzYUozlw5pqgc&ust=1563919210163941",
+        photo: "https://img1.looper.com/img/uploads/2019/02/harry-potter.jpg",
         options: [
             "1",
             "1",

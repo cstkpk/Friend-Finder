@@ -180,7 +180,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Your new best friend is: <span id="match-name"></span></p>
-                    <img id="match-photo" src="" alt="">
+                    <img class="img-fluid" id="match-photo" src="" alt="">
                 </div>
                 </div>
             </div>
@@ -244,7 +244,8 @@ $("#submit").on("click", function(event) {
         $.post("/api/friends", userAnswers, function(data) {
 
             // Grab match here
-            $("#match-name").text(data.name);
+            $("#match-name").text(data.friendName);
+            $("#match-photo").attr("src", data.friendImage)
             // Show results modal
             $("#modal-match").modal("show");
             // Clear out user input fields

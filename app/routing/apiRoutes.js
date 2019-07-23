@@ -12,7 +12,7 @@ module.exports = function(app) {
     // Retrieves user input from array and displays on API friends list
     app.post("/api/friends", function(req, res) {
         surveyData.push(req.body);
-        res.json(true);
+        // res.json(true);
 
         // var newPerson = req.body.options;
         // var newPersonInt = [];
@@ -55,10 +55,17 @@ module.exports = function(app) {
         var matchNum = diffArr.indexOf(Math.min(...diffArr));
         console.log(matchNum);
         matchFriend = surveyData[matchNum].name;
-        matchPhoto = surveyData[matchNum].photo
+        matchPhoto = surveyData[matchNum].photo;
         console.log(matchFriend);
         console.log(matchPhoto);
+
+        res.json({
+           friendName: matchFriend, 
+           friendImage: matchPhoto
+        });
 
     });
 
 };
+
+// Goodbye
