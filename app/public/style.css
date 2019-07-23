@@ -7,6 +7,6 @@
     background-color: blue;
 }; */
 
-#match-photo {
-    width: 100%;
-};
+.container-custom {
+    background-color: grey;
+}

@@ -13,7 +13,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Font Awesome icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <!-- If I insert my own stylehseet -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -148,7 +148,7 @@
             <div class="container">
               <p>
                 <a href="/api/friends">API Friends List</a> |
-                <a href="#">Github Repo</a>
+                <a href="https://github.com/cstkpk/Friend-Finder" target="_blank">Github Repo</a>
             </div>
         </footer>
 
@@ -214,10 +214,6 @@ $("#submit").on("click", function(event) {
         console.log("Form validation finished");
         return isValid;
     }
-
-    // function formAlerts() {
-    //     var forms = $(".form-control");
-    // }
     
     // If form validation returns as true, create an object to hold user's input
     if (validateForm()) {
@@ -250,7 +246,7 @@ $("#submit").on("click", function(event) {
             $("#modal-match").modal("show");
             // Clear out user input fields
             $(".form-control").val("");
-            $(".chosen select").val(""); // This doesn't clear out the fields like I thought it would. Come back later
+            $(".chosen select").val(""); // This doesn't clear out the fields like I thought it would
 
         });
     
@@ -258,8 +254,6 @@ $("#submit").on("click", function(event) {
     // If form validation returns as false, tell the user to fill out all of the questions
     else {
         $("#modal-validation").modal("show");
-        // alert("Please answer all of the questions!");
-        // formAlerts();
     }
 });
 
